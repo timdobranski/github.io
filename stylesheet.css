@@ -1,0 +1,395 @@
+#page {
+    background-image: url('assets/homeWallpaper.jpg');
+    background-attachment: fixed;
+    font-family: economica;
+
+}
+
+#main {
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: black;
+    opacity: 75%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    padding: 10px;
+}
+
+.head {
+    background-color: black;
+
+}
+
+a:link {
+    color:white;
+    font-family: nimbusSans;
+    padding: 10px;
+}
+
+a:hover {
+    color: deepskyblue;
+}
+
+p {
+    color: white;
+    font-size: large;
+    font-family: 'nimbusSans';
+}
+
+h1 {
+    color: white;
+    font-family: economica;
+    font-size: extra-large;
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+}
+
+h2 {
+    font-family: nimbusSans;
+    color: limegreen;
+
+}
+
+
+
+.headerLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.vertLine {
+    height: 20px;
+    width: 1px;
+    display: inline;
+}
+
+.navLinks {
+    font-family: arial;
+    color: white;
+}
+
+.navBar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    opacity: 65%;
+    border-style: solid;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-color: white;
+}
+
+@font-face {
+    font-family: 'nimbusSans';
+    src: url('assets/nimbus/NimbusSanL-Reg.otf')
+    format('opentype');
+}
+
+@font-face {
+    font-family: 'economica';
+    src: url('assets/economica/Economica-Regular-OTF.otf')
+    format('opentype');
+}
+
+@font-face {
+    font-family: 'economicaBold';
+    src: url('assets/economica/Economica-Bold-OTF.otf')
+    format('opentype');
+}
+
+/*****************************************************
+CALENDAR
+/*****************************************************/
+
+#schedule {
+    text-align: center;
+    font-family: economica;
+    background-color: black;
+}
+
+#mon4 {
+    width: 150px;  
+}
+
+table {
+    text-align: center;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+
+}
+
+.time {
+    background-color: white;
+    padding: 2px;
+}
+
+.tableHead {
+    font-size: 26px;
+    padding: 5px;
+    border-radius: 1.5px;
+    border-width: 1.5px;
+}
+
+.monBooked {
+    background-color: #147095;
+    font-family: economicaBold;
+    width: 150px;
+    border-width: 1.5px;
+    cursor: pointer;
+}
+
+.monOpen {
+    background-color: #9fc5e8;
+    font-family: economica;
+    width: 150px;
+    cursor: pointer;
+}
+
+.tuesBooked {
+    background-color: #2fc02d;
+    font-family: economicaBold;
+    width: 150px;
+    border-width: 1.5px;
+}
+
+.tuesOpen {
+    background-color: #b9fc9e;
+    font-family: economica;
+    width: 150px;
+    border-width: 1.5px;
+    cursor: pointer;
+}
+.wedBooked {
+    background-color: #ff2d2b;
+    font-family: economicaBold;
+    width: 150px;
+}
+
+.wedOpen {
+    background-color: #ea9999;
+    font-family: economica;
+    width: 150px;
+    cursor: pointer;
+}
+.thursBooked {
+    background-color: #ffb62b;
+    font-family: economicaBold;
+    width: 150px;
+}
+
+.thursOpen {
+    background-color: #ffe599;
+    font-family: economica;
+    width: 150px;
+    cursor: pointer;
+}
+.friBooked {
+    background-color: #a64d79;
+    font-family: economicaBold;
+    width: 150px;
+}
+
+.friOpen {
+    background-color: #d5a6bd;
+    font-family: economica;
+    width: 150px;
+    cursor: pointer;
+}
+
+/*****************************************************
+SIGN UP FORM
+/*****************************************************/
+
+#formModal {
+    font-family: economica;
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+#formContainer {
+    display: block;
+    width: 25%;
+    height: 75%;
+    position: center;
+    margin:  5% auto;
+    border: 4px solid #888;
+    border-color: rgb(88, 231, 78);
+    background-color: rgb(0, 0, 0);
+}
+
+.form {
+    font-family: economica;
+    text-align: center;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.617);
+    margin: 0% auto; /* 15% from the top and centered */
+    padding: 10px;
+    width: 75%;
+ }
+
+ .signupButton {
+    font-size: 18px;
+    font-family: economica;
+    background-color: white;
+    color: black;
+    width: 75%;
+    cursor: pointer;
+ }
+
+ .formInput {
+    background-color: white;
+
+ }
+
+
+/*****************************************************
+LOGIN PORTAL
+/*****************************************************/
+.login {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    padding: 4px;
+    font-size: 18px;
+}
+
+.para {
+    display: inline-block;
+    text-align: center;
+    font-family: economica;
+    color:white;
+    width: 50%;
+    font-size: 22px;
+    margin: auto;
+    padding-bottom: 20px
+}
+
+.modal {
+    display: block;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modalContent {
+    font-family: economica;
+    text-align: center;
+    color:white;
+    background-color: black;
+    margin: 0% auto; /* 15% from the top and centered */
+    padding: 4px;
+    width: 100%; /* Could be more or less, depending on screen size */  
+}
+
+.modalContainer {
+    width: 25%;
+    margin: 5% auto;
+    border: 4px solid #888;
+    border-color: white;
+}
+
+.modalButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 100%;
+    cursor: pointer;
+}
+
+.header {
+    font-family: economica;
+    text-align: center;
+    color:white;
+    background-color: black;
+    margin: 0% auto; /* 15% from the top and centered */
+    padding: 2px;
+    padding-top: 10px;
+    width: 98%; /* Could be more or less, depending on screen size */ 
+}
+
+.filled {
+    color:rgb(105, 233, 120)
+}
+
+.unfilled {
+ color: rgb(248, 104, 109)
+}
+
+#loginButton {
+    font-family: economica;
+    background-color: white;
+    color: black;
+    width: 100px;
+    cursor: pointer;
+}
+
+.divider {
+    color: white;
+    background-color: white;
+    border-top: 1px solid;
+    width: 98%
+}
+
+.user {
+
+    font-weight: bold;
+    color:rgb(85, 232, 95);
+
+}
+#loginas {
+    font-family: economica;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    font-size: 24px;
+}
+
+#loginName {
+    font-family: economica;
+    font-weight: bold;
+    font-size: 28px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    color:rgb(85, 232, 95);
+}
+
