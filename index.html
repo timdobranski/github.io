@@ -5,85 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
-
+    <script src="jQuery/jQuery.js"></script>
+    <script src="script/app.js"></script>
     <title>Schedule</title>
 </head>
 <body id='schedule'>
+    <!--Header Goes Here--> 
     <header class='header'>
         <img src="assets/logo.png" class='headerLogo'>
     </header>
-    <h1>Lesson Schedule</h1>
-    <p class="para">To book lessons, email tim@LaMesaStringSchool.com or call 619-820-6213</p>
-    <table>
-        <!--Weekday Header-->
-        <tr>
-            <thead>
-              <th class='time'>Times:</th>
-              <th class='monBooked tableHead'>Monday</th>
-              <th class='tuesBooked tableHead'>Tuesday</th>
-              <th class='wedBooked tableHead'>Wednesday</th>
-              <th class='thursBooked tableHead'>Thursday</th>
-              <th class='friBooked tableHead'>Friday</th>
-            </thead>
-        </tr>
-        <tbody>
-            <!--3:30PM-->
-            <tr>
-                <td class='time'>3:30PM</td>
-                <td id="mon330"></td>
-                <td id='tues330'></td>
-                <td id='wed330'></td>
-                <td id="thurs330"></td>
-                <td id='fri330'></td>
-            </tr>
-            <!--4PM-->
-            <tr>
-                <td class='time'>4:00PM</td>
-                <td id="mon4"></td>
-                <td id='tues4'></td>
-                <td id='wed4'></td>
-                <td id='thurs4'></td>
-                <td id='fri4'></td>
-            </tr>
-            <!--4:30PM-->
-            <tr>
-                <td class='time'>4:30PM</td>
-                <td id="mon430"></td>
-                <td id='tues430'></td>
-                <td id='wed430'></td>
-                <td id='thurs430'></td>
-                <td id='fri430'></td>
-            </tr>
-            <!--5PM-->
-            <tr>
-                <td class='time'>5:00PM</td>
-                <td id="mon5"></td>
-                <td id='tues5'></td>
-                <td id='wed5'></td>
-                <td id='thurs5'></td>
-                <td id='fri5'></td>
-            </tr>
-            <!--5:30PM-->
-            <tr>
-                <td class='time'>5:30PM</td>
-                <td id="mon530">No Lessons</td>
-                <td id='tues530'></td>
-                <td id='wed530'>No Lessons</td>
-                <td id='thurs530'></td>
-                <td id='fri530'></td>
-            </tr>
-        </tbody>
-    </table>
 
-    <br> 
+    <!--App Goes Here--> 
+    <div id="app">
+    </div>
 
+    <!--Other stuff that still needs to be moved to JS--> 
     <form class='login'>
         <input type="text"class='login' id="loginInput" autocomplete="off"></input>
         <button class="login" id="loginButton">Login</button>
     </form>
 
-<div id='formModal'>
-  <div id="formContainer">
+    <div id='formModal'>
+    <div id="formContainer">
     </form class='form'>
         <!--Spot day/time-->
         <p class='form'></p>
@@ -111,6 +54,5 @@
     </form>
   </div>
 </div>
-        <script src="script/app.js"></script>
 </body>
 </html>

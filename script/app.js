@@ -1,6 +1,11 @@
+$(document).ready( function () {
+
+// DEFINE APP ELEMENT
+var $app = $('#app');
 // LOGIN FORM/BUTTON
-var input = document.querySelector('#loginInput');
-var button = document.querySelector('#loginButton');
+
+var $input = $('#loginInput');
+var $button = $('#loginButton');
 // Default Login Status: False
 var timLoggedIn = false;
 
@@ -10,9 +15,9 @@ var logins = {
 }
 
 // CREATE LOGIN FORM: Form, Input, Button
-var inputField = document.querySelector('form');
+var $inputField = $('form');
 // When Login/Logout Button Clicked/Form Submitted:
-inputField.addEventListener('submit', function(event) {
+$inputField.on('submit', function(event) {
     event.preventDefault();
  if (input.value === logins.tim) {
         timLoggedIn = true;
@@ -21,30 +26,31 @@ inputField.addEventListener('submit', function(event) {
         //Re-render the table as logged-in
         renderTable(schedule);
 
-        button.innerText = 'Log Out';
+        $button.innerText = 'Log Out';
 
         // Create a p element for logged in status
-        var loginAs = document.createElement('p');
-        var loginName = document.createElement('p');
+        var $loginAs = $('p');
+        var $loginName = $('p');
 
         // Add classes for styling
         // loginAs.classList.add('para');
         // loginName.classList.add('para', 'user');
 
         // Add ID for later deletion
-        loginAs.setAttribute('id', 'loginas');
-        loginName.setAttribute('id', 'loginName');
+        $loginAs.attr('id', 'loginas');
+        $loginName.attr('id', 'loginName');
 
         // Add text
-        loginAs.innerText = "Logged in as: ";
-        loginName.innerText = 'Tim';
+        $loginAs.innerText = "Logged in as: ";
+        $loginName.innerText = 'Tim';
 
+        
         form.insertAdjacentElement('afterEnd', loginName);
         form.insertAdjacentElement('afterend', loginAs);
     }
 });
 // When Log Out Button is clicked, log out
-button.addEventListener('click', function() {
+$button.on('click', function() {
     if (timLoggedIn) {
        // console.log('reached this point');
         logOut();
@@ -102,8 +108,8 @@ function logOut() {
 }
 
 
-// STUDENT CLASS CONSTRUCTOR
-function Student(name, spot, phone, email, parent1, parent2, parent1Phone, parent2Phone, parent1Email, parent2Email, preferredComm) {
+// STUDENT CLASS CONSTRUCTOR (pseudoclassical)
+var Student = function (name, spot, phone, email, parent1, parent2, parent1Phone, parent2Phone, parent1Email, parent2Email, preferredComm) {
     this.name = name;
     this.spot = spot;
     this.phone = phone;
@@ -252,49 +258,172 @@ var schedule = {
 //var form = document.querySelector('form');
 
 var handler = function() {renderInfo(this.info)};
+
 // RENDER SCHEDULE FUNCTION
+// Everything created should have a class of 'schedule'
 function renderTable(schedule) {
+  // CREATE header, intro paragraph, and table
+  var $scheduleHeader = $('<h1 class="schedule" id="scheduleHeader">Lesson Schedule</h1>');
+  var $scheduleWelcome = $('<p class="schedule" id="scheduleWelcome">To book lessons, email tim@LaMesaStringSchool.com or call 619-820-6213</p>');
+
+  var $scheduleTable = $('<table class="schedule" id="scheduleTable"></table>');
+
+    var $scheduleHead = $('<thead class="schedule" id="scheduleHead"></thead> ');
+    
+      var $scheduleHeadTime = $('<th class="schedule time">Times:</th>');
+      var $scheduleHeadMon = $('<th class="schedule monBooked">Monday</th>');
+      var $scheduleHeadTues = $('<th class="schedule tuesBooked">Tuesday</th>');
+      var $scheduleHeadWed = $('<th class="schedule wedBooked">Wednesday</th>');
+      var $scheduleHeadThurs = $('<th class="schedule thursBooked">Thursday</th>');
+      var $scheduleHeadFri = $('<th class="schedule friBooked">Friday</th>');
+
+    var $scheduleBody = $('<tbody class="schedule" id="schedulebody"></tbody>');
+      // 3:30 Row
+      var $tableRow330 = $('<tr class="schedule"></tr>');
+        var $tableRow330Time = $('<td class="schedule time">3:30</td>');
+        var $tableRow330Mon = $('<td class="schedule" id="mon330"></td>');
+        var $tableRow330Tues = $('<td class="schedule" id="tues330"></td>');
+        var $tableRow330Wed = $('<td class="schedule" id="wed330"></td>');
+        var $tableRow330Thurs = $('<td class="schedule" id="thurs330"></td>');
+        var $tableRow330Fri = $('<td class="schedule" id="fri330"></td>');
+      // 4:00 Row
+      var $tableRow4 = $('<tr class="schedule"></tr>');
+        var $tableRow4Time = $('<td class="schedule time">4:00</td>');
+        var $tableRow4Mon = $('<td class="schedule" id="mon4"></td>');
+        var $tableRow4Tues = $('<td class="schedule" id="tues4"></td>');
+        var $tableRow4Wed = $('<td class="schedule" id="wed4"></td>');
+        var $tableRow4Thurs = $('<td class="schedule" id="thurs4"></td>');
+        var $tableRow4Fri = $('<td class="schedule" id="fri4"></td>');
+      // 4:30 Row
+      var $tableRow430 = $('<tr class="schedule"></tr>');
+        var $tableRow430Time = $('<td class="schedule time">4:30</td>');
+        var $tableRow430Mon = $('<td class="schedule" id="mon430"></td>');
+        var $tableRow430Tues = $('<td class="schedule" id="tues430"></td>');
+        var $tableRow430Wed = $('<td class="schedule" id="wed430"></td>');
+        var $tableRow430Thurs = $('<td class="schedule" id="thurs430"></td>');
+        var $tableRow430Fri = $('<td class="schedule" id="fri430"></td>');
+      // 5:00 Row
+      var $tableRow5 = $('<tr class="schedule"></tr>');
+        var $tableRow5Time = $('<td class="schedule time">5:00</td>');
+        var $tableRow5Mon = $('<td class="schedule" id="mon5"></td>');
+        var $tableRow5Tues = $('<td class="schedule" id="tues5"></td>');
+        var $tableRow5Wed = $('<td class="schedule" id="wed5"></td>');
+        var $tableRow5Thurs = $('<td class="schedule" id="thurs5"></td>');
+        var $tableRow5Fri = $('<td class="schedule" id="fri5"></td>');
+      // 5:30 Row
+      var $tableRow530 = $('<tr class="schedule"></tr>');
+        var $tableRow530Time = $('<td class="schedule time">5:30</td>');
+        var $tableRow530Mon = $('<td class="schedule" id="mon530"></td>');
+        var $tableRow530Tues = $('<td class="schedule" id="tues530"></td>');
+        var $tableRow530Wed = $('<td class="schedule" id="wed530"></td>');
+        var $tableRow530Thurs = $('<td class="schedule" id="thurs530"></td>');
+        var $tableRow530Fri = $('<td class="schedule" id="fri530"></td>');
+
+    // APPEND All Elements in Proper Order
+
+    // Header, Paragraph, Table, thead, headelements, body, (row, rowelements x 5)
+    $scheduleHeader.appendTo($app);
+    $scheduleWelcome.appendTo($app);
+    // table
+    $scheduleTable.appendTo($app);
+      // table head
+      $scheduleHead.appendTo($scheduleTable);
+        $scheduleHeadTime.appendTo($scheduleHead);
+        $scheduleHeadMon.appendTo($scheduleHead);
+        $scheduleHeadTues.appendTo($scheduleHead);
+        $scheduleHeadWed.appendTo($scheduleHead);
+        $scheduleHeadThurs.appendTo($scheduleHead);
+        $scheduleHeadFri.appendTo($scheduleHead);
+      // table body
+      $scheduleBody.appendTo($scheduleTable);
+        // 3:30 row
+        $tableRow330.appendTo($scheduleBody);
+          $tableRow330Time.appendTo($tableRow330);
+          $tableRow330Mon.appendTo($tableRow330);
+          $tableRow330Tues.appendTo($tableRow330);
+          $tableRow330Wed.appendTo($tableRow330);
+          $tableRow330Thurs.appendTo($tableRow330);
+          $tableRow330Fri.appendTo($tableRow330);
+        // 4:00 row
+        $tableRow4.appendTo($scheduleBody);
+          $tableRow4Time.appendTo($tableRow4);
+          $tableRow4Mon.appendTo($tableRow4);
+          $tableRow4Tues.appendTo($tableRow4);
+          $tableRow4Wed.appendTo($tableRow4);
+          $tableRow4Thurs.appendTo($tableRow4);
+          $tableRow4Fri.appendTo($tableRow4);
+        // 4:30 row
+        $tableRow430.appendTo($scheduleBody);
+          $tableRow430Time.appendTo($tableRow430);
+          $tableRow430Mon.appendTo($tableRow430);
+          $tableRow430Tues.appendTo($tableRow430);
+          $tableRow430Wed.appendTo($tableRow430);
+          $tableRow430Thurs.appendTo($tableRow430);
+          $tableRow430Fri.appendTo($tableRow430);
+        // 5:00 row
+        $tableRow5.appendTo($scheduleBody);
+          $tableRow5Time.appendTo($tableRow5);
+          $tableRow5Mon.appendTo($tableRow5);
+          $tableRow5Tues.appendTo($tableRow5);
+          $tableRow5Wed.appendTo($tableRow5);
+          $tableRow5Thurs.appendTo($tableRow5);
+          $tableRow5Fri.appendTo($tableRow5);
+        // 5:30 row
+        $tableRow530.appendTo($scheduleBody);
+          $tableRow530Time.appendTo($tableRow530);
+          $tableRow530Mon.appendTo($tableRow530);
+          $tableRow530Tues.appendTo($tableRow530);
+          $tableRow530Wed.appendTo($tableRow530);
+          $tableRow530Thurs.appendTo($tableRow530);
+          $tableRow530Fri.appendTo($tableRow530);
+
+
+
+
+
+
+
    //console.log('timLoggedIn: ' + timLoggedIn);
     // For each day
     for (var day in schedule) {
         // For each time
         for (var time in schedule[day]) {
             // Create var for that element
-            var spot = document.querySelector(`#${day}${time}`);
+            var $spot = $(`#${day}${time}`);
             // Convenience variables
             var booked = schedule[day][time].booked;
             // If booked
             if (booked === true) {
                 var name = schedule[day][time].info.student[0];
-                spot.info = schedule[day][time].info;
+                $spot.info = schedule[day][time].info;
                 // Set that element's class to 'day' + text to booked or student name depending on login status
-                spot.setAttribute('class', `${day}Booked`)
-                spot.innerText = timLoggedIn ? name : 'Booked';
+                $spot.attr('class', `${day}Booked`)
+                $spot.innerText = timLoggedIn ? name : 'Booked';
 
                 // If Tim is logged in, add click event listeners to show student data table
                 if (timLoggedIn === true) {
                     // Make clicking a booked spot render an info table for that student 
 
-                    spot.addEventListener('click', this.handler)
+                    $spot.addEventListener('click', this.handler)
                 } else {
                     // If Tim is NOT logged in, remove event listeners
-                    spot.removeEventListener('click', handler, false);
+                    $spot.off('click', handler, false);
                 }
 
             // Else
             } else if (booked === false) {
                 // Set class to 'day' + text to open
-                spot.setAttribute('class', `${day}Open`);
-                spot.innerText = 'Open!';
+                $spot.attr('class', `${day}Open`);
+                $spot.innerText = 'Open!';
                 // Add an event listener for clicks that opens a sign-up page
-                spot.addEventListener('click', function() {
+                $spot.off('click', function() {
                     // For now, do nothing but test functionality
                     console.log('You clicked an open spot!')
                     // Render Form Function (to be built), pass it the JS obj inside schedule that was clicked on
-                    document.querySelector('#formModal').style.display = 'block';
+                    $('#formModal').style.display = 'block';
                     // Form input then used to create new student using Student constructor
-                    document.querySelector('#backfromsignup').addEventListener('click', function() {
-                        document.querySelector('#formModal').style.display = 'none';
+                    $('#backfromsignup').on('click', function() {
+                        $('#formModal').style.display = 'none';
                         console.log('you clicked the back button');
                     })
                 });
@@ -308,27 +437,27 @@ function renderTable(schedule) {
 
 
 
-var form = document.querySelector('form');
+var $form = $('form');
 
 function renderInfo(infoObj) {
     // Create a div for the modal
-    var modal = document.createElement('div');
-    modal.classList.add('modal');
-    form.insertAdjacentElement('afterend', modal)
-    modal.addEventListener('click', function() {
-        modal.style.display = 'none';
+    var $modal = $('<div></div>');
+    $modal.classList.add('modal');
+    form.insertAdjacentElement('afterend', $modal)
+    $modal.on('click', function() {
+        $modal.style.display = 'none';
     })
     // Create a div for the table, add class, and append
     var infoPage = document.createElement('div');
     infoPage.classList.add('modalContainer');
-    modal.appendChild(infoPage);
+    $modal.appendChild(infoPage);
     // Create a back button
-    var backButton = document.createElement('button');
+    var $backButton = $('<button></button>');
     backButton.classList.add('modalButton');
     backButton.innerText = 'Back';
     infoPage.appendChild(backButton);
-    backButton.addEventListener('click', function() {
-        modal.style.display = 'none';
+    backButton.on('click', function() {
+        $modal.style.display = 'none';
     })
     // Create a header of spot day/time, add class and append to infopage
     var spotHeader = document.createElement('h2');
@@ -609,7 +738,7 @@ renderTable(schedule);
 
 
 
-
+});
 
 
 
