@@ -1,20 +1,24 @@
-#page {
-    background-image: url('assets/homeWallpaper.jpg');
-    background-attachment: fixed;
-    font-family: economica;
+/*****************************************************
+MAIN PAGE AND HEADER
+/*****************************************************/
+@font-face {
+    font-family: 'nimbusSans';
+    src: url('nimbus/NimbusSanL-Reg.otf')
+    format('opentype');
+}
 
+@font-face {
+    font-family: 'economica';
+    src: url('economica/Economica-Regular-OTF.otf')
+    format('opentype');
 }
-#main {
-    width: 1000px;
-    text-align: center;
-    margin: 0 auto;
-    background-color: black;
-    opacity: 75%;
-    border-style: solid;
-    border-width: 5px;
-    border-color: white;
-    padding: 10px;
+
+@font-face {
+    font-family: 'economicaBold';
+    src: url('economica/Economica-Bold-OTF.otf')
+    format('opentype');
 }
+
 #logo {
     display: block;
     margin-left: auto;
@@ -125,6 +129,9 @@ h2 {
     color: limegreen;
 }
 
+/*****************************************************
+MISC
+/*****************************************************/
 .vertLine {
     height: 20px;
     width: 1px;
@@ -154,24 +161,6 @@ h2 {
     border-color: white;
 }
 
-@font-face {
-    font-family: 'nimbusSans';
-    src: url('assets/nimbus/NimbusSanL-Reg.otf')
-    format('opentype');
-}
-
-@font-face {
-    font-family: 'economica';
-    src: url('assets/economica/Economica-Regular-OTF.otf')
-    format('opentype');
-}
-
-@font-face {
-    font-family: 'economicaBold';
-    src: url('assets/economica/Economica-Bold-OTF.otf')
-    format('opentype');
-}
-
 /*****************************************************
 CALENDAR
 /*****************************************************/
@@ -185,11 +174,6 @@ CALENDAR
     font-family: economica;
     background-color: black;
 }
-
-#mon4 {
-    width: 150px;  
-}
-
 table {
     text-align: center;
     table-layout: fixed;
@@ -214,7 +198,7 @@ table {
 .monBooked {
     background-color: #147095;
     font-family: economicaBold;
-    width: 150px;
+    width: 120px;
     border-width: 1.5px;
     cursor: pointer;
 }
@@ -222,58 +206,58 @@ table {
 .monOpen {
     background-color: #9fc5e8;
     font-family: economica;
-    width: 150px;
+    width: 120px;
     cursor: pointer;
 }
 
 .tuesBooked {
     background-color: #2fc02d;
     font-family: economicaBold;
-    width: 150px;
+    width: 120px;
     border-width: 1.5px;
 }
 
 .tuesOpen {
     background-color: #b9fc9e;
     font-family: economica;
-    width: 150px;
+    width: 120px;
     border-width: 1.5px;
     cursor: pointer;
 }
 .wedBooked {
     background-color: #ff2d2b;
     font-family: economicaBold;
-    width: 150px;
+    width: 120px;
 }
 
 .wedOpen {
     background-color: #ea9999;
     font-family: economica;
-    width: 150px;
+    width: 120px;
     cursor: pointer;
 }
 .thursBooked {
     background-color: #ffb62b;
     font-family: economicaBold;
-    width: 150px;
+    width: 120px;
 }
 
 .thursOpen {
     background-color: #ffe599;
     font-family: economica;
-    width: 150px;
+    width: 120px;
     cursor: pointer;
 }
 .friBooked {
     background-color: #a64d79;
     font-family: economicaBold;
-    width: 150px;
+    width: 120px;
 }
 
 .friOpen {
     background-color: #d5a6bd;
     font-family: economica;
-    width: 150px;
+    width: 120px;
     cursor: pointer;
 }
 
