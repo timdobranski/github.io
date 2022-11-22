@@ -22,11 +22,11 @@ function renderTable(schedule) {
     var $scheduleHead = $('<thead class="schedule" id="scheduleHead"></thead> ');
     
       var $scheduleHeadTime = $('<th class="schedule time">Times:</th>');
-      var $scheduleHeadMon = $('<th class="tableHead schedule monBooked">Monday</th>');
-      var $scheduleHeadTues = $('<th class="tableHead schedule tuesBooked">Tuesday</th>');
-      var $scheduleHeadWed = $('<th class="tableHead schedule wedBooked">Wednesday</th>');
-      var $scheduleHeadThurs = $('<th class="tableHead schedule thursBooked">Thursday</th>');
-      var $scheduleHeadFri = $('<th class="tableHead schedule friBooked">Friday</th>');
+      var $scheduleHeadMon = $('<th class="tableHead schedule monBooked">Mon</th>');
+      var $scheduleHeadTues = $('<th class="tableHead schedule tuesBooked">Tues</th>');
+      var $scheduleHeadWed = $('<th class="tableHead schedule wedBooked">Wed</th>');
+      var $scheduleHeadThurs = $('<th class="tableHead schedule thursBooked">Thurs</th>');
+      var $scheduleHeadFri = $('<th class="tableHead schedule friBooked">Fri</th>');
 
     var $scheduleBody = $('<tbody class="schedule" id="schedulebody"></tbody>');
       // 3:30 Row
@@ -212,6 +212,7 @@ $('#login').on('submit', function(event) {
 // When Log Out Button is clicked, log out
 $('#loginButton').on('click', function() {
     debugger;
+    event.preventDefault();
     if (timLoggedIn && $('#loginButton').text() === 'Log Out') {
        // console.log('reached this point');
         timLoggedIn = false;
@@ -224,9 +225,6 @@ $('#loginButton').on('click', function() {
 };
 
 renderTable(data);
-
-
-
 
 
 var $form = $('form');
