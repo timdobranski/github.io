@@ -16,4 +16,15 @@
         margin-top: 0px;
     }
 
+    #loginStatusLeft {
+        font-size: 20px;
+    }
+    #loginInput {
+        width: 90%
+    }
+    #background {
+     height: 100%;
+     width: auto;
+     opacity: .2;
+    }
 }

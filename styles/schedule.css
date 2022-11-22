@@ -18,7 +18,31 @@ MAIN PAGE AND HEADER
     src: url('economica/Economica-Bold-OTF.otf')
     format('opentype');
 }
+#schedule {
+    position: relative;
+    text-align: center;
+    font-family: economica;
+    background-color: black;
+    overflow: hidden;
 
+}
+#background {
+  opacity: 0.3;
+  position: fixed;
+  left: 0;
+  top: 0;
+  object-fit:cover
+}
+.header {
+    display: inline;
+    font-family: economica;
+    text-align: center;
+    color:white;
+    position: relative;
+    margin: 0% auto; /* 15% from the top and centered */
+    padding-top: 10px;
+    width: 100%; /* Could be more or less, depending on screen size */ 
+}
 #logo {
     display: block;
     margin-left: auto;
@@ -26,6 +50,7 @@ MAIN PAGE AND HEADER
     width: 40%;
     padding: 10px;
 }
+
 #headerContainer {
     padding-top: 15px;
     display: grid;
@@ -85,6 +110,7 @@ MAIN PAGE AND HEADER
 }
 
 #loginInput {
+    display: block;
     background-color: white;
     color: black;
     vertical-align: middle;
@@ -164,16 +190,14 @@ MISC
 /*****************************************************
 CALENDAR
 /*****************************************************/
+#app {
+    position: relative;
+}
 #scheduleWelcome {
     font-family: economica;
     font-size: 20px;
 }
 
-#schedule {
-    text-align: center;
-    font-family: economica;
-    background-color: black;
-}
 table {
     text-align: center;
     table-layout: fixed;
@@ -378,16 +402,7 @@ MODAL
     width: 100%;
     cursor: pointer;
 }
-.header {
-    display: inline;
-    font-family: economica;
-    text-align: center;
-    color:white;
-    background-color: black;
-    margin: 0% auto; /* 15% from the top and centered */
-    padding-top: 10px;
-    width: 100%; /* Could be more or less, depending on screen size */ 
-}
+
 .filled {
     color:rgb(105, 233, 120)
 }

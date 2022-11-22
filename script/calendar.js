@@ -1,7 +1,18 @@
 $(document).ready( function () {
-// DEFINE APP ELEMENT
+// DEFINE APP & HEADER ELEMENTS
 var $app = $('#app');
 var $headerContainer = $('#headerContainer');
+
+// login form, input & button
+var $loginForm = $('#loginForm');
+var $loginFormInput = $('#loginInput');
+var $loginFormButton = $('#loginButton');
+// login status, name, and right-side info
+var $loginName = $('#loginName');
+var $loginStatus = $('#loginStatusLeft');
+var $headerInfo = $('#headerInfoRight');
+
+
 // LOGIN CREDENTIALS STORAGE
 var logins = {
     tim: '123'
@@ -69,11 +80,6 @@ function renderTable(schedule) {
         var $tableRow530Wed = $('<td class="schedule" id="wed530"></td>');
         var $tableRow530Thurs = $('<td class="schedule" id="thurs530"></td>');
         var $tableRow530Fri = $('<td class="schedule" id="fri530"></td>');
-  
-  // login form, input and button
-  var $loginForm = $('#loginForm');
-  var $loginFormInput = $('#loginInput');
-  var $loginFormButton = $('#loginButton');
 
   // APPEND All Elements in Proper Order
   // Header, Paragraph, Table, thead, headelements, body, (row, rowelements x 5)
@@ -136,8 +142,6 @@ function renderTable(schedule) {
     $loginFormInput.appendTo($loginForm);
     $loginFormButton.appendTo($loginForm);
 
-
-
     // POPULATE SCHEDULE - Works without login functionality
     for (var spot in data) {
       // Create var for that element
@@ -146,85 +150,86 @@ function renderTable(schedule) {
       var booked = data[spot].booked;
       // If booked
       if (booked === true) {
-                var name = data[spot].info.student[0];
-                $spot.info = data[spot].info;
-                // Set that element's class to 'day' + text to booked or student name depending on login status
-                // THIS LINE WILL BE A PROBLEM AFTER THE REFACTOR
-                $spot.attr('class', data[spot].bookedClass)
-                if (timLoggedIn) {
-                    $spot.text(name); 
-                } else {
-                    $spot.text('Booked'); 
-                }
-                //$spot.innerText = timLoggedIn ? name : 'Booked';
-                // If Tim is logged in, add click event listeners to show student data table
-                if (timLoggedIn === true) {
-                    // Make clicking a booked spot render an info table for that student 
-                    $spot.on('click', this.handler)
-                } else {
-                    // If Tim is NOT logged in, remove event listeners
-                    $spot.off('click', handler, false);
-                }
-
-            // Else
-            } else if (booked === false) {
-                // Set class to 'day' + text to open
-                $spot.attr('class', data[spot].openClass);
-                $spot.text('Open!');
-                // Add an event listener for clicks that opens a sign-up page
-                $spot.off('click', function() {
-                    // For now, do nothing but test functionality
-                    console.log('You clicked an open spot!')
-                    // Render Form Function (to be built), pass it the JS obj inside schedule that was clicked on
-                    $('#formModal').style.display = 'block';
-                    // Form input then used to create new student using Student constructor
-                    $('#backfromsignup').on('click', function() {
-                        $('#formModal').style.display = 'none';
-                        console.log('you clicked the back button');
-                    })
-                });
-            } ;
+        var name = data[spot].info.student[0];
+        $spot.info = data[spot].info;
+        // Set that element's class to 'day' + text to booked or student name depending on login status
+        // THIS LINE WILL BE A PROBLEM AFTER THE REFACTOR
+        $spot.attr('class', data[spot].bookedClass)
+        if (timLoggedIn) {
+          $spot.text(name); 
+        } else {
+          $spot.text('Booked'); 
+        }
+        // If Tim is logged in, add click event listeners to show student data table
+        if (timLoggedIn === true) {
+        // Make clicking a booked spot render an info table for that student 
+          $spot.on('click', this.handler)
+        } else {
+        // If Tim is NOT logged in, remove event listeners
+          $spot.off('click', handler, false);
+        }
+        // Else
+        } else if (booked === false) {
+          // Set class to 'day' + text to open
+          $spot.attr('class', data[spot].openClass);
+          $spot.text('Open!');
+        // Add an event listener for clicks that opens a sign-up page
+          $spot.off('click', function() {
+            // For now, do nothing but test functionality
+            console.log('You clicked an open spot!')
+            // Render Form Function (to be built), pass it the JS obj inside schedule that was clicked on
+            $('#formModal').style.display = 'block';
+            // Form input then used to create new student using Student constructor
+            $('#backfromsignup').on('click', function() {
+              $('#formModal').style.display = 'none';
+            })
+          });
+        } ;
     };
 
-    // HANDLE USERNAME CLICK
-// If tim logged in
-// When Login/Logout Button Clicked/Form Submitted:
+
+// HANDLE LOGIN
 $('#login').on('submit', function(event) {
-    //console.log($('#loginForm'));
-    //debugger;
-    event.preventDefault();
- if ($loginFormInput.val() === logins.tim) {
-        timLoggedIn = true;
-        $loginFormInput.value = '';
-        // Remove the existing table
-        $('.schedule').remove();
-        //Re-render the table as logged-in
-        renderTable(data);
-
-        $loginFormButton.text('Log Out');
-
-        // Add text
-        $('#loginStatusLeft').text("Logged in as: ");
-        $('#loginName').text('Tim');
-        $('#headerInfoRight').text('Teacher');
-    }
-});
-// When Log Out Button is clicked, log out
-$('#loginButton').on('click', function() {
     debugger;
-    event.preventDefault();
-    if (timLoggedIn && $('#loginButton').text() === 'Log Out') {
-       // console.log('reached this point');
-        timLoggedIn = false;
-        $('#loginStatus').text("Logged Out");
-        $('#loginName').text('');
-        $('#headerInfoRight').text('');
-        renderTable(data);
+  event.preventDefault();
+  // if password matches tim's
+  if ($loginFormInput.val() === logins.tim) {
+    // login
+    login();
     }
 });
 };
 
-renderTable(data);
+/*///////////////////////////////////////////////////////////////////////////
+ LOGIN / LOGOUT FUNCTIONS
+///////////////////////////////////////////////////////////////////////////*/
+var login = function (user) {
+  timLoggedIn = true;   // log tim in
+  $('#loginInput').val('')   // reset the input value
+  $('.schedule').remove();    // remove the schedule
+  renderTable(data);    // rerender the schedule
+  $('#loginButton').text('Log Out');    // update header texts
+  $loginName.text('Tim');
+  $headerInfo.text('Teacher');
+  $loginStatus.text('Logged In As: ')
+  // Add click handler for logout button
+  $loginFormButton.on('click', function() {
+    event.preventDefault();
+    if (timLoggedIn && $('#loginButton').text() === 'Log Out') {
+      logOut();
+    }
+  });
+}
+var logOut = function () {
+    timLoggedIn = false;
+    $('#loginStatusLeft').text("Logged Out");
+    $('#loginName').text('');
+    $('#headerInfoRight').text('');
+    $('.schedule').remove();
+    $loginFormButton.text('Login');
+    renderTable(data);
+}
+
 
 
 var $form = $('form');
@@ -501,6 +506,8 @@ function renderInfo(infoObj) {
     }
 }
 
+renderTable(data);
+
 
 // Should create a form and append it on the page
 // function renderForm(day, time) {
@@ -529,50 +536,6 @@ function renderInfo(infoObj) {
 });
 
 
-// // WON'T RUN IF FORM NOT APPENDED TO PAGE FIRST ----------------------
-// // When Login/Logout Button Clicked/Form Submitted:
-// $inputField.on('submit', function(event) {
-//     event.preventDefault();
-//  if ($input.value === logins.tim) {
-//         timLoggedIn = true;
-//         $input.value = '';
-        
-//         //Re-render the table as logged-in
-//         renderTable(schedule);
-
-//         $button.text('Log Out');
-
-//         // Create a p element for logged in status
-//         var $loginAs = $('p');
-//         var $loginName = $('p');
-
-//         // Add classes for styling
-//         // loginAs.classList.add('para');
-//         // loginName.classList.add('para', 'user');
-
-//         // Add ID for later deletion
-//         $loginAs.attr('id', 'loginas');
-//         $loginName.attr('id', 'loginName');
-
-//         // Add text
-//         $loginAs.text("Logged in as: ");
-//         $loginName.text('Tim');
-
-        
-//         $loginName.appendTo($form);
-//         $loginAs.appendTo($form);
-//     }
-// });
-// // When Log Out Button is clicked, log out
-// $button.on('click', function() {
-//     if (timLoggedIn) {
-//        // console.log('reached this point');
-//         logOut();
-//     }
-// });
-
-
-// End login/logout behavior ----------------------------------------------------------
 
 // STUDENT CLASS CONSTRUCTOR (pseudoclassical)
 // var Student = function (name, spot, phone, email, parent1, parent2, parent1Phone, parent2Phone, parent1Email, parent2Email, preferredComm) {
@@ -589,5 +552,3 @@ function renderInfo(infoObj) {
 //     this.preferredComm = preferredComm;
 // }
 
-
-//var form = document.querySelector('form');
