@@ -4,7 +4,6 @@
     font-family: economica;
 
 }
-
 #main {
     width: 1000px;
     text-align: center;
@@ -16,22 +15,96 @@
     border-color: white;
     padding: 10px;
 }
-
-.head {
-    background-color: black;
-
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    padding: 10px;
+}
+#headerContainer {
+    padding-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.headerColumn1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+.headerColumn2 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+.headerColumn3 {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+#loginStatusLeft {
+    font-family: economica;
+    display: inline;
+    text-align: right;
+    padding: 5px;
+    font-size: 24px;
+}
+#headerInfoRight {
+    font-family: economica;
+    display: inline;
+    text-align: left;
+    padding: 5px;
+    font-size: 24px;
+    margin: 50%
+}
+#loginName {
+    font-family: economica;
+    font-weight: bold;
+    font-size: 28px;
+    display: inline;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    color:rgb(85, 232, 95);
+}
+.login {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    padding: 4px;
+    font-size: 18px;
 }
 
+#loginInput {
+    background-color: white;
+    color: black;
+    vertical-align: middle;
+    margin: 0 auto
+}
+#loginButton {
+    font-family: economica;
+    background-color: white;
+    color: black;
+    width: 100px;
+    cursor: pointer;
+}
+#loginButton {
+    display: block;
+    margin: 0 auto 
+}
 a:link {
     color:white;
     font-family: nimbusSans;
     padding: 10px;
 }
-
 a:hover {
     color: deepskyblue;
 }
-
 p {
     color: white;
     font-size: large;
@@ -47,21 +120,9 @@ h1 {
     padding: 10px;
     text-align: center;
 }
-
 h2 {
     font-family: nimbusSans;
     color: limegreen;
-
-}
-
-
-
-.headerLogo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    padding: 10px;
 }
 
 .vertLine {
@@ -114,6 +175,10 @@ h2 {
 /*****************************************************
 CALENDAR
 /*****************************************************/
+#scheduleWelcome {
+    font-family: economica;
+    font-size: 20px;
+}
 
 #schedule {
     text-align: center;
@@ -267,16 +332,8 @@ SIGN UP FORM
 
 
 /*****************************************************
-LOGIN PORTAL
+HEADER AND LOGIN
 /*****************************************************/
-.login {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-    padding: 4px;
-    font-size: 18px;
-}
 
 .para {
     display: inline-block;
@@ -288,7 +345,14 @@ LOGIN PORTAL
     margin: auto;
     padding-bottom: 20px
 }
+.user {
+    font-weight: bold;
+    color:rgb(85, 232, 95);
+}
 
+/*****************************************************
+MODAL
+/*****************************************************/
 .modal {
     display: block;
     position: fixed; /* Stay in place */
@@ -301,7 +365,6 @@ LOGIN PORTAL
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 .modalContent {
     font-family: economica;
     text-align: center;
@@ -311,14 +374,12 @@ LOGIN PORTAL
     padding: 4px;
     width: 100%; /* Could be more or less, depending on screen size */  
 }
-
 .modalContainer {
     width: 25%;
     margin: 5% auto;
     border: 4px solid #888;
     border-color: white;
 }
-
 .modalButton {
     background-color: #4CAF50;
     border: none;
@@ -333,18 +394,16 @@ LOGIN PORTAL
     width: 100%;
     cursor: pointer;
 }
-
 .header {
+    display: inline;
     font-family: economica;
     text-align: center;
     color:white;
     background-color: black;
     margin: 0% auto; /* 15% from the top and centered */
-    padding: 2px;
     padding-top: 10px;
-    width: 98%; /* Could be more or less, depending on screen size */ 
+    width: 100%; /* Could be more or less, depending on screen size */ 
 }
-
 .filled {
     color:rgb(105, 233, 120)
 }
@@ -353,13 +412,7 @@ LOGIN PORTAL
  color: rgb(248, 104, 109)
 }
 
-#loginButton {
-    font-family: economica;
-    background-color: white;
-    color: black;
-    width: 100px;
-    cursor: pointer;
-}
+
 
 .divider {
     color: white;

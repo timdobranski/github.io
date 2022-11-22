@@ -6,20 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
     <script src="jQuery/jQuery.js"></script>
-    <script src="script/app.js"></script>
+    <script src="script/schedule.js"></script>
+    <script src="script/calendar.js"></script>
     <title>Schedule</title>
 </head>
-<body id='schedule'>
+<body id="schedule">
     <!--Header Goes Here--> 
     <header class='header'>
-        <img src="assets/logo.png" class='headerLogo'>
+        <img src="assets/logo.png" class='header' id="logo">
+        <div id="headerContainer">
+            <div class="headerColumn1">
+                <span id="loginStatusLeft">Logged Out</span>
+                <span id="loginName"></span>
+            </div>
+            <div class="headerColumn2">
+                <form id="login">
+                    <input type="text" class="login" id="loginInput"></input>
+                    <button class="login" id="loginButton">Login</button>
+                </form>
+            </div>
+            <div class="headerColumn3">
+                <span  id="headerInfoRight"></span>
+            </div>
+        </div>
     </header>
-
     <!--App Goes Here--> 
     <div id="app">
     </div>
 
-    <!--Other stuff that still needs to be moved to JS--> 
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Other stuff that still needs to be moved to JS 
     <form class='login'>
         <input type="text"class='login' id="loginInput" autocomplete="off"></input>
         <button class="login" id="loginButton">Login</button>
@@ -27,31 +54,41 @@
 
     <div id='formModal'>
     <div id="formContainer">
-    </form class='form'>
-        <!--Spot day/time-->
+    <form class='form'>
+        <!--Spot day/time--
         <p class='form'></p>
-        <!--Greeting-->
+        <!--Greeting--
         <p class='form'>To sign up for a free introductory session, fill out the form below and I'll email to confirm within 24 hours.</p>
-        <!--Input Name-->
+        <!--Input Name--
         <p class='form'>Name</p>
         <input type="text" class='formInput'></input>
-        <!--Input Email-->
+        <!--Input Email--
         <p class='form'>Email</p>
         <input type="text" class='formInput'></input>
-        <!--Input Phone-->
+        <!--Input Phone--
         <p class='form'>Phone</p>
         <input type="text" class="formInput"></input>
-        <!--Input Comm Preference-->
+        <!--Input Comm Preference--
         <p class='form'>Do you prefer phone, email, or text for communication?</p>
         <input type="text" class='formInput'></input>
-        <!--Input Start day-->
+        <!--Input Start day--
         <p class='form'>Start day</p>
         <input type="text" class='formInput'></input>
         <br>
-        <!--Submit Button-->
+        <!--Submit Button--
         <button type='submit' class='form signupButton'>Schedule Free Intro Session</button>
         <button class='form signupButton' id="backfromsignup">Back</button>
     </form>
+
+
+
+
+
+                    <form id="loginForm">
+                  <input type="text" class="login" id="loginInput"></input>
+                  <button class="login" id="loginButton">Login</button>
+                </form>
+    --> 
   </div>
 </div>
 </body>

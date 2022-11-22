@@ -1,268 +1,19 @@
 $(document).ready( function () {
-
 // DEFINE APP ELEMENT
 var $app = $('#app');
-// LOGIN FORM/BUTTON
-
-var $input = $('#loginInput');
-var $button = $('#loginButton');
-// Default Login Status: False
-var timLoggedIn = false;
-
+var $headerContainer = $('#headerContainer');
 // LOGIN CREDENTIALS STORAGE
 var logins = {
     tim: '123'
 }
-
-// CREATE LOGIN FORM: Form, Input, Button
-var $inputField = $('form');
-// When Login/Logout Button Clicked/Form Submitted:
-$inputField.on('submit', function(event) {
-    event.preventDefault();
- if (input.value === logins.tim) {
-        timLoggedIn = true;
-        input.value = '';
-        
-        //Re-render the table as logged-in
-        renderTable(schedule);
-
-        $button.innerText = 'Log Out';
-
-        // Create a p element for logged in status
-        var $loginAs = $('p');
-        var $loginName = $('p');
-
-        // Add classes for styling
-        // loginAs.classList.add('para');
-        // loginName.classList.add('para', 'user');
-
-        // Add ID for later deletion
-        $loginAs.attr('id', 'loginas');
-        $loginName.attr('id', 'loginName');
-
-        // Add text
-        $loginAs.innerText = "Logged in as: ";
-        $loginName.innerText = 'Tim';
-
-        
-        form.insertAdjacentElement('afterEnd', loginName);
-        form.insertAdjacentElement('afterend', loginAs);
-    }
-});
-// When Log Out Button is clicked, log out
-$button.on('click', function() {
-    if (timLoggedIn) {
-       // console.log('reached this point');
-        logOut();
-    }
-});
-
-// LOG IN FUNCTION if correct credentials are supplied:
-function logIn(userName) {
-    // Login button text changes to Log Out
-    button.innerText = 'Log Out';
-
-    // Boolean flag for logged in set to true
-    timLoggedIn = true;
-
-    // Reset input value
-    input.value = '';
-        
-    //Re-render the table as logged-in
-    renderTable(schedule);
-
-
-        
-    // Element for "Logged In As " and "Username" are created
-    var loginAs = document.createElement('p');
-    var loginName = document.createElement('p');
-    // Add classes for styling
-    // loginAs.classList.add('para');
-    // loginName.classList.add('para', 'user');
-    // Append to Page
-    form.insertAdjacentElement('afterend', loginName);
-    form.insertAdjacentElement('afterend', loginAs);
-    // Add ID for later deletion
-    loginAs.setAttribute('id', 'loginas');
-    loginName.setAttribute('id', 'loginName');
-    // Add text
-    loginAs.innerText = "Logged in as: ";
-    loginName.innerText = 'Tim';
-
-};
-
-// LOG OUT FUNCTION - if button is clicked and timloggedin is true
-function logOut() {
-    // Set timLoggedIn flag to false
-    timLoggedIn = false;
-    // Change button text back to Login
-    button.innerText = 'Login';
-    // Remove the previously generated login elements
-    var loginAs = document.getElementById('loginas');
-    var loginName = document.getElementById('loginName');
-    loginAs.remove();
-    loginName.remove();
-    // Rerender schedule
-    renderTable(schedule);
-
-}
-
-
-// STUDENT CLASS CONSTRUCTOR (pseudoclassical)
-var Student = function (name, spot, phone, email, parent1, parent2, parent1Phone, parent2Phone, parent1Email, parent2Email, preferredComm) {
-    this.name = name;
-    this.spot = spot;
-    this.phone = phone;
-    this.email = email;
-    this.parent1 = parent1;
-    this.parent2 = parent2;
-    this.parent1Phone = parent1Phone;
-    this.parent2Phone = parent2Phone;
-    this.parent1Email = parent1Email;
-    this.parent2Email = parent2Email;
-    this.preferredComm = preferredComm;
-}
-
-// SCHEDULE OBJECT
-var schedule = {
-    // Mon Spots:
-    'mon': {
-        '330': {
-            'booked': true,
-            'info': {
-                'student': ['Jonah Gardner', null, null, null],  // Name, phone, email, pref
-                'parent1': ['Christina Gardner', null, 'christina@stuartgardner.com', null],
-                'parent2': [null, null, null, null],
-                'spot': 'Monday 3:30PM',
-            }
-            
-        },
-        '4': {
-            'booked': true,
-            'info': {
-                'student': ['Riley Baluca', null, null, null],  // Name, phone, email, pref
-                parent1: ['Rosanna Baluca', null, 'rbalucacosio@yahoo.com', null],
-                parent2: [null, null, null, null],
-                spot: 'Monday 4:00PM',
-            }
-            
-        },
-        '430': {
-            'booked': true,
-            'info': {
-                'student': ['Jill Harrison', '619-599-6557', 'ajjsh98@gmail.com', 'text'],  // Name, phone, email, pref
-                parent1: [null, null, null, null],
-                parent2: [null, null, null, null],
-                spot: 'Monday 4:30PM',
-            }
-            
-        },
-        '5': {
-            'booked': true,
-            'info': {
-                'student': ['Levi Sklar', false, false, false],  // Name, phone, email, pref
-                parent1: ['Marc Sklar', '619-981-3205', 'sklarlac@gmail.com', null],
-                parent2: ['Karyn Sklar', '619-990-1597', 'krsklar@gmail.com', null],
-                spot: 'Monday 5:00PM',
-            }
-            
-        },
-        '530': {
-            'booked': false,
-        },
-    },
-    'tues': {
-        '330': {
-            'booked': false,
-        },
-        '4': {
-            'booked': false,
-        },
-        '430': {
-            'booked': false,
-        },
-        '5': {
-            'booked': false,
-        },
-        '530': {
-            'booked': false,
-        },
-    },
-    'wed': {
-        '330': {
-            'booked': false,
-        },
-        '4': {
-            'booked': false,
-        },
-        '430': {
-            'booked': false,
-        },
-        '5': {
-            'booked': false,
-        },
-        '530': {
-            'booked': false,
-        },
-    },
-    'thurs': {
-        '330': {
-            'booked': false,
-        },
-        '4': {
-            'booked': false,
-        },
-        '430': {
-            'booked': false,
-        },
-        '5': {
-            'booked': false,
-        },
-        '530': {
-            'booked': false,
-        },
-    },
-    'fri': {
-        '330': {
-            'booked': false,
-        },
-        '4': {
-            'booked': false,
-        },
-        '430': {
-            'booked': false,
-        },
-        '5': {
-            'booked': false,
-        },
-        '530': {
-            'booked': false,
-        },
-    },
-    // sun: {
-    //     '10': {
-    //         'booked': false,
-    //     },
-    //     '1030': {
-    //         'booked': true,
-    //     },
-    //     '11': {
-    //         'booked': false,
-    //     },
-    //     '1130': {
-    //         'booked': true,
-    //     },
-    // },
-}
-
-//var form = document.querySelector('form');
+var timLoggedIn = false;
 
 var handler = function() {renderInfo(this.info)};
 
 // RENDER SCHEDULE FUNCTION
 // Everything created should have a class of 'schedule'
 function renderTable(schedule) {
-  // CREATE header, intro paragraph, and table
+  // CREATE header, intro paragraph, table, and login
   var $scheduleHeader = $('<h1 class="schedule" id="scheduleHeader">Lesson Schedule</h1>');
   var $scheduleWelcome = $('<p class="schedule" id="scheduleWelcome">To book lessons, email tim@LaMesaStringSchool.com or call 619-820-6213</p>');
 
@@ -271,11 +22,11 @@ function renderTable(schedule) {
     var $scheduleHead = $('<thead class="schedule" id="scheduleHead"></thead> ');
     
       var $scheduleHeadTime = $('<th class="schedule time">Times:</th>');
-      var $scheduleHeadMon = $('<th class="schedule monBooked">Monday</th>');
-      var $scheduleHeadTues = $('<th class="schedule tuesBooked">Tuesday</th>');
-      var $scheduleHeadWed = $('<th class="schedule wedBooked">Wednesday</th>');
-      var $scheduleHeadThurs = $('<th class="schedule thursBooked">Thursday</th>');
-      var $scheduleHeadFri = $('<th class="schedule friBooked">Friday</th>');
+      var $scheduleHeadMon = $('<th class="tableHead schedule monBooked">Monday</th>');
+      var $scheduleHeadTues = $('<th class="tableHead schedule tuesBooked">Tuesday</th>');
+      var $scheduleHeadWed = $('<th class="tableHead schedule wedBooked">Wednesday</th>');
+      var $scheduleHeadThurs = $('<th class="tableHead schedule thursBooked">Thursday</th>');
+      var $scheduleHeadFri = $('<th class="tableHead schedule friBooked">Friday</th>');
 
     var $scheduleBody = $('<tbody class="schedule" id="schedulebody"></tbody>');
       // 3:30 Row
@@ -318,93 +69,98 @@ function renderTable(schedule) {
         var $tableRow530Wed = $('<td class="schedule" id="wed530"></td>');
         var $tableRow530Thurs = $('<td class="schedule" id="thurs530"></td>');
         var $tableRow530Fri = $('<td class="schedule" id="fri530"></td>');
+  
+  // login form, input and button
+  var $loginForm = $('#loginForm');
+  var $loginFormInput = $('#loginInput');
+  var $loginFormButton = $('#loginButton');
 
-    // APPEND All Elements in Proper Order
+  // APPEND All Elements in Proper Order
+  // Header, Paragraph, Table, thead, headelements, body, (row, rowelements x 5)
+  $scheduleHeader.appendTo($app);
+  $scheduleWelcome.appendTo($app);
+  // table
+  $scheduleTable.appendTo($app);
+  // table head
+  $scheduleHead.appendTo($scheduleTable);
+    $scheduleHeadTime.appendTo($scheduleHead);
+    $scheduleHeadMon.appendTo($scheduleHead);
+    $scheduleHeadTues.appendTo($scheduleHead);
+    $scheduleHeadWed.appendTo($scheduleHead);
+    $scheduleHeadThurs.appendTo($scheduleHead);
+    $scheduleHeadFri.appendTo($scheduleHead);
+  // table body
+  $scheduleBody.appendTo($scheduleTable);
+    // 3:30 row
+    $tableRow330.appendTo($scheduleBody);
+      $tableRow330Time.appendTo($tableRow330);
+      $tableRow330Mon.appendTo($tableRow330);
+      $tableRow330Tues.appendTo($tableRow330);
+      $tableRow330Wed.appendTo($tableRow330);
+      $tableRow330Thurs.appendTo($tableRow330);
+      $tableRow330Fri.appendTo($tableRow330);
+    // 4:00 row
+    $tableRow4.appendTo($scheduleBody);
+      $tableRow4Time.appendTo($tableRow4);
+      $tableRow4Mon.appendTo($tableRow4);
+      $tableRow4Tues.appendTo($tableRow4);
+      $tableRow4Wed.appendTo($tableRow4);
+      $tableRow4Thurs.appendTo($tableRow4);
+      $tableRow4Fri.appendTo($tableRow4);
+    // 4:30 row
+    $tableRow430.appendTo($scheduleBody);
+      $tableRow430Time.appendTo($tableRow430);
+      $tableRow430Mon.appendTo($tableRow430);
+      $tableRow430Tues.appendTo($tableRow430);
+      $tableRow430Wed.appendTo($tableRow430);
+      $tableRow430Thurs.appendTo($tableRow430);
+      $tableRow430Fri.appendTo($tableRow430);
+    // 5:00 row
+    $tableRow5.appendTo($scheduleBody);
+      $tableRow5Time.appendTo($tableRow5);
+      $tableRow5Mon.appendTo($tableRow5);
+      $tableRow5Tues.appendTo($tableRow5);
+      $tableRow5Wed.appendTo($tableRow5);
+      $tableRow5Thurs.appendTo($tableRow5);
+      $tableRow5Fri.appendTo($tableRow5);
+    // 5:30 row
+    $tableRow530.appendTo($scheduleBody);
+      $tableRow530Time.appendTo($tableRow530);
+      $tableRow530Mon.appendTo($tableRow530);
+      $tableRow530Tues.appendTo($tableRow530);
+      $tableRow530Wed.appendTo($tableRow530);
+      $tableRow530Thurs.appendTo($tableRow530);
+      $tableRow530Fri.appendTo($tableRow530);
 
-    // Header, Paragraph, Table, thead, headelements, body, (row, rowelements x 5)
-    $scheduleHeader.appendTo($app);
-    $scheduleWelcome.appendTo($app);
-    // table
-    $scheduleTable.appendTo($app);
-      // table head
-      $scheduleHead.appendTo($scheduleTable);
-        $scheduleHeadTime.appendTo($scheduleHead);
-        $scheduleHeadMon.appendTo($scheduleHead);
-        $scheduleHeadTues.appendTo($scheduleHead);
-        $scheduleHeadWed.appendTo($scheduleHead);
-        $scheduleHeadThurs.appendTo($scheduleHead);
-        $scheduleHeadFri.appendTo($scheduleHead);
-      // table body
-      $scheduleBody.appendTo($scheduleTable);
-        // 3:30 row
-        $tableRow330.appendTo($scheduleBody);
-          $tableRow330Time.appendTo($tableRow330);
-          $tableRow330Mon.appendTo($tableRow330);
-          $tableRow330Tues.appendTo($tableRow330);
-          $tableRow330Wed.appendTo($tableRow330);
-          $tableRow330Thurs.appendTo($tableRow330);
-          $tableRow330Fri.appendTo($tableRow330);
-        // 4:00 row
-        $tableRow4.appendTo($scheduleBody);
-          $tableRow4Time.appendTo($tableRow4);
-          $tableRow4Mon.appendTo($tableRow4);
-          $tableRow4Tues.appendTo($tableRow4);
-          $tableRow4Wed.appendTo($tableRow4);
-          $tableRow4Thurs.appendTo($tableRow4);
-          $tableRow4Fri.appendTo($tableRow4);
-        // 4:30 row
-        $tableRow430.appendTo($scheduleBody);
-          $tableRow430Time.appendTo($tableRow430);
-          $tableRow430Mon.appendTo($tableRow430);
-          $tableRow430Tues.appendTo($tableRow430);
-          $tableRow430Wed.appendTo($tableRow430);
-          $tableRow430Thurs.appendTo($tableRow430);
-          $tableRow430Fri.appendTo($tableRow430);
-        // 5:00 row
-        $tableRow5.appendTo($scheduleBody);
-          $tableRow5Time.appendTo($tableRow5);
-          $tableRow5Mon.appendTo($tableRow5);
-          $tableRow5Tues.appendTo($tableRow5);
-          $tableRow5Wed.appendTo($tableRow5);
-          $tableRow5Thurs.appendTo($tableRow5);
-          $tableRow5Fri.appendTo($tableRow5);
-        // 5:30 row
-        $tableRow530.appendTo($scheduleBody);
-          $tableRow530Time.appendTo($tableRow530);
-          $tableRow530Mon.appendTo($tableRow530);
-          $tableRow530Tues.appendTo($tableRow530);
-          $tableRow530Wed.appendTo($tableRow530);
-          $tableRow530Thurs.appendTo($tableRow530);
-          $tableRow530Fri.appendTo($tableRow530);
-
-
-
-
-
+    $loginForm.appendTo($headerContainer);
+    $loginFormInput.appendTo($loginForm);
+    $loginFormButton.appendTo($loginForm);
 
 
-   //console.log('timLoggedIn: ' + timLoggedIn);
-    // For each day
-    for (var day in schedule) {
-        // For each time
-        for (var time in schedule[day]) {
-            // Create var for that element
-            var $spot = $(`#${day}${time}`);
-            // Convenience variables
-            var booked = schedule[day][time].booked;
-            // If booked
-            if (booked === true) {
-                var name = schedule[day][time].info.student[0];
-                $spot.info = schedule[day][time].info;
+
+    // POPULATE SCHEDULE - Works without login functionality
+    for (var spot in data) {
+      // Create var for that element
+      var $spot = $('#' + spot);
+      // Convenience variables
+      var booked = data[spot].booked;
+      // If booked
+      if (booked === true) {
+                var name = data[spot].info.student[0];
+                $spot.info = data[spot].info;
                 // Set that element's class to 'day' + text to booked or student name depending on login status
-                $spot.attr('class', `${day}Booked`)
-                $spot.innerText = timLoggedIn ? name : 'Booked';
-
+                // THIS LINE WILL BE A PROBLEM AFTER THE REFACTOR
+                $spot.attr('class', data[spot].bookedClass)
+                if (timLoggedIn) {
+                    $spot.text(name); 
+                } else {
+                    $spot.text('Booked'); 
+                }
+                //$spot.innerText = timLoggedIn ? name : 'Booked';
                 // If Tim is logged in, add click event listeners to show student data table
                 if (timLoggedIn === true) {
                     // Make clicking a booked spot render an info table for that student 
-
-                    $spot.addEventListener('click', this.handler)
+                    $spot.on('click', this.handler)
                 } else {
                     // If Tim is NOT logged in, remove event listeners
                     $spot.off('click', handler, false);
@@ -413,8 +169,8 @@ function renderTable(schedule) {
             // Else
             } else if (booked === false) {
                 // Set class to 'day' + text to open
-                $spot.attr('class', `${day}Open`);
-                $spot.innerText = 'Open!';
+                $spot.attr('class', data[spot].openClass);
+                $spot.text('Open!');
                 // Add an event listener for clicks that opens a sign-up page
                 $spot.off('click', function() {
                     // For now, do nothing but test functionality
@@ -428,11 +184,47 @@ function renderTable(schedule) {
                     })
                 });
             } ;
-        };
     };
-};
-// HANDLE USERNAME CLICK
+
+    // HANDLE USERNAME CLICK
 // If tim logged in
+// When Login/Logout Button Clicked/Form Submitted:
+$('#login').on('submit', function(event) {
+    //console.log($('#loginForm'));
+    //debugger;
+    event.preventDefault();
+ if ($loginFormInput.val() === logins.tim) {
+        timLoggedIn = true;
+        $loginFormInput.value = '';
+        // Remove the existing table
+        $('.schedule').remove();
+        //Re-render the table as logged-in
+        renderTable(data);
+
+        $loginFormButton.text('Log Out');
+
+        // Add text
+        $('#loginStatusLeft').text("Logged in as: ");
+        $('#loginName').text('Tim');
+        $('#headerInfoRight').text('Teacher');
+    }
+});
+// When Log Out Button is clicked, log out
+$('#loginButton').on('click', function() {
+    debugger;
+    if (timLoggedIn && $('#loginButton').text() === 'Log Out') {
+       // console.log('reached this point');
+        timLoggedIn = false;
+        $('#loginStatus').text("Logged Out");
+        $('#loginName').text('');
+        $('#headerInfoRight').text('');
+        renderTable(data);
+    }
+});
+};
+
+renderTable(data);
+
 
 
 
@@ -720,8 +512,6 @@ function renderInfo(infoObj) {
 // }
 
 
-renderTable(schedule);
-
 //var testInfo = schedule.mon['5'].info;
 //console.log(JSON.stringify(testInfo));
 
@@ -741,4 +531,65 @@ renderTable(schedule);
 });
 
 
+// // WON'T RUN IF FORM NOT APPENDED TO PAGE FIRST ----------------------
+// // When Login/Logout Button Clicked/Form Submitted:
+// $inputField.on('submit', function(event) {
+//     event.preventDefault();
+//  if ($input.value === logins.tim) {
+//         timLoggedIn = true;
+//         $input.value = '';
+        
+//         //Re-render the table as logged-in
+//         renderTable(schedule);
 
+//         $button.text('Log Out');
+
+//         // Create a p element for logged in status
+//         var $loginAs = $('p');
+//         var $loginName = $('p');
+
+//         // Add classes for styling
+//         // loginAs.classList.add('para');
+//         // loginName.classList.add('para', 'user');
+
+//         // Add ID for later deletion
+//         $loginAs.attr('id', 'loginas');
+//         $loginName.attr('id', 'loginName');
+
+//         // Add text
+//         $loginAs.text("Logged in as: ");
+//         $loginName.text('Tim');
+
+        
+//         $loginName.appendTo($form);
+//         $loginAs.appendTo($form);
+//     }
+// });
+// // When Log Out Button is clicked, log out
+// $button.on('click', function() {
+//     if (timLoggedIn) {
+//        // console.log('reached this point');
+//         logOut();
+//     }
+// });
+
+
+// End login/logout behavior ----------------------------------------------------------
+
+// STUDENT CLASS CONSTRUCTOR (pseudoclassical)
+// var Student = function (name, spot, phone, email, parent1, parent2, parent1Phone, parent2Phone, parent1Email, parent2Email, preferredComm) {
+//     this.name = name;
+//     this.spot = spot;
+//     this.phone = phone;
+//     this.email = email;
+//     this.parent1 = parent1;
+//     this.parent2 = parent2;
+//     this.parent1Phone = parent1Phone;
+//     this.parent2Phone = parent2Phone;
+//     this.parent1Email = parent1Email;
+//     this.parent2Email = parent2Email;
+//     this.preferredComm = preferredComm;
+// }
+
+
+//var form = document.querySelector('form');
