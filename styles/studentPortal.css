@@ -1,0 +1,35 @@
+#studentPortalContainer {
+    margin-top: 50px;
+}
+
+button {
+    font-family: economica;
+    background-color: white;
+    color: black;
+    width: 100px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+#scheduleMakeupButton {
+    font-family: economica;
+    background-color: white;
+    color: black;
+    width: 15%;
+    height: 30px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto 
+    padding: 10px;
+}
+span.studentPortal {
+    font-family: economica;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    margin-top: 30px;
+    font-size: 24px;
+    color: white
+}

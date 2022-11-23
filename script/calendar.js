@@ -43,44 +43,44 @@ function renderTable(schedule) {
     var $scheduleBody = $('<tbody class="schedule" id="schedulebody"></tbody>');
       // 3:30 Row
       var $tableRow330 = $('<tr class="schedule"></tr>');
-        var $tableRow330Time = $('<td class="schedule time">3:30</td>');
-        var $tableRow330Mon = $('<td class="schedule" id="mon330"></td>');
-        var $tableRow330Tues = $('<td class="schedule" id="tues330"></td>');
-        var $tableRow330Wed = $('<td class="schedule" id="wed330"></td>');
-        var $tableRow330Thurs = $('<td class="schedule" id="thurs330"></td>');
-        var $tableRow330Fri = $('<td class="schedule" id="fri330"></td>');
+        var $tableRow330Time = $('<td class="schedule time scheduleCell">3:30</td>');
+        var $tableRow330Mon = $('<td class="schedule scheduleCell" id="mon330"></td>');
+        var $tableRow330Tues = $('<td class="schedule scheduleCell" id="tues330"></td>');
+        var $tableRow330Wed = $('<td class="schedule scheduleCell" id="wed330"></td>');
+        var $tableRow330Thurs = $('<td class="schedule scheduleCell" id="thurs330"></td>');
+        var $tableRow330Fri = $('<td class="schedule scheduleCell" id="fri330"></td>');
       // 4:00 Row
       var $tableRow4 = $('<tr class="schedule"></tr>');
-        var $tableRow4Time = $('<td class="schedule time">4:00</td>');
-        var $tableRow4Mon = $('<td class="schedule" id="mon4"></td>');
-        var $tableRow4Tues = $('<td class="schedule" id="tues4"></td>');
-        var $tableRow4Wed = $('<td class="schedule" id="wed4"></td>');
-        var $tableRow4Thurs = $('<td class="schedule" id="thurs4"></td>');
-        var $tableRow4Fri = $('<td class="schedule" id="fri4"></td>');
+        var $tableRow4Time = $('<td class="schedule time scheduleCell">4:00</td>');
+        var $tableRow4Mon = $('<td class="schedule scheduleCell" id="mon4"></td>');
+        var $tableRow4Tues = $('<td class="schedule scheduleCell" id="tues4"></td>');
+        var $tableRow4Wed = $('<td class="schedule scheduleCell" id="wed4"></td>');
+        var $tableRow4Thurs = $('<td class="schedule scheduleCell" id="thurs4"></td>');
+        var $tableRow4Fri = $('<td class="schedule scheduleCell" id="fri4"></td>');
       // 4:30 Row
       var $tableRow430 = $('<tr class="schedule"></tr>');
-        var $tableRow430Time = $('<td class="schedule time">4:30</td>');
-        var $tableRow430Mon = $('<td class="schedule" id="mon430"></td>');
-        var $tableRow430Tues = $('<td class="schedule" id="tues430"></td>');
-        var $tableRow430Wed = $('<td class="schedule" id="wed430"></td>');
-        var $tableRow430Thurs = $('<td class="schedule" id="thurs430"></td>');
-        var $tableRow430Fri = $('<td class="schedule" id="fri430"></td>');
+        var $tableRow430Time = $('<td class="schedule time scheduleCell">4:30</td>');
+        var $tableRow430Mon = $('<td class="schedule scheduleCell" id="mon430"></td>');
+        var $tableRow430Tues = $('<td class="schedule scheduleCell" id="tues430"></td>');
+        var $tableRow430Wed = $('<td class="schedule scheduleCell" id="wed430"></td>');
+        var $tableRow430Thurs = $('<td class="schedule scheduleCell" id="thurs430"></td>');
+        var $tableRow430Fri = $('<td class="schedule scheduleCell" id="fri430"></td>');
       // 5:00 Row
       var $tableRow5 = $('<tr class="schedule"></tr>');
-        var $tableRow5Time = $('<td class="schedule time">5:00</td>');
-        var $tableRow5Mon = $('<td class="schedule" id="mon5"></td>');
-        var $tableRow5Tues = $('<td class="schedule" id="tues5"></td>');
-        var $tableRow5Wed = $('<td class="schedule" id="wed5"></td>');
-        var $tableRow5Thurs = $('<td class="schedule" id="thurs5"></td>');
-        var $tableRow5Fri = $('<td class="schedule" id="fri5"></td>');
+        var $tableRow5Time = $('<td class="schedule time scheduleCell">5:00</td>');
+        var $tableRow5Mon = $('<td class="schedule scheduleCell" id="mon5"></td>');
+        var $tableRow5Tues = $('<td class="schedule scheduleCell" id="tues5"></td>');
+        var $tableRow5Wed = $('<td class="schedule scheduleCell" id="wed5"></td>');
+        var $tableRow5Thurs = $('<td class="schedule scheduleCell" id="thurs5"></td>');
+        var $tableRow5Fri = $('<td class="schedule scheduleCell" id="fri5"></td>');
       // 5:30 Row
       var $tableRow530 = $('<tr class="schedule"></tr>');
-        var $tableRow530Time = $('<td class="schedule time">5:30</td>');
-        var $tableRow530Mon = $('<td class="schedule" id="mon530"></td>');
-        var $tableRow530Tues = $('<td class="schedule" id="tues530"></td>');
-        var $tableRow530Wed = $('<td class="schedule" id="wed530"></td>');
-        var $tableRow530Thurs = $('<td class="schedule" id="thurs530"></td>');
-        var $tableRow530Fri = $('<td class="schedule" id="fri530"></td>');
+        var $tableRow530Time = $('<td class="schedule time scheduleCell">5:30</td>');
+        var $tableRow530Mon = $('<td class="schedule scheduleCell" id="mon530"></td>');
+        var $tableRow530Tues = $('<td class="schedule scheduleCell" id="tues530"></td>');
+        var $tableRow530Wed = $('<td class="schedule scheduleCell" id="wed530"></td>');
+        var $tableRow530Thurs = $('<td class="schedule scheduleCell" id="thurs530"></td>');
+        var $tableRow530Fri = $('<td class="schedule scheduleCell" id="fri530"></td>');
 
   // APPEND All Elements in Proper Order
   // Header, Paragraph, Table, thead, headelements, body, (row, rowelements x 5)
@@ -196,7 +196,7 @@ $('#login').on('submit', function(event) {
   // if password matches tim's
   if ($loginFormInput.val() === logins.tim) {
     // login tim
-    login();
+    loginTim();
     }
   if ($loginFormInput.val() === logins.student) {
     // login student
@@ -208,7 +208,7 @@ $('#login').on('submit', function(event) {
 /*///////////////////////////////////////////////////////////////////////////
  LOGIN / LOGOUT FUNCTIONS
 ///////////////////////////////////////////////////////////////////////////*/
-var login = function (user) {
+var loginTim = function (user) {
   timLoggedIn = true;   // log tim in
   $('#loginInput').val('')   // reset the input value
   $('.schedule').remove();    // remove the schedule
@@ -245,7 +245,7 @@ var logOut = function () {
       // if password matches tim's
       if ($loginFormInput.val() === logins.tim) {
         // login
-        login();
+        loginTim();
         }
     });
 }
