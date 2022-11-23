@@ -190,7 +190,7 @@ function renderTable(schedule) {
 
 // HANDLE LOGIN
 $('#login').on('submit', function(event) {
-    debugger;
+
   event.preventDefault();
   // if password matches tim's
   if ($loginFormInput.val() === logins.tim) {
@@ -212,6 +212,8 @@ var login = function (user) {
   $loginName.text('Tim');
   $headerInfo.text('Teacher');
   $loginStatus.text('Logged In As: ')
+  // Remove prior click handler for login button
+  $('#login').off();
   // Add click handler for logout button
   $loginFormButton.on('click', function() {
     event.preventDefault();
@@ -221,6 +223,7 @@ var login = function (user) {
   });
 }
 var logOut = function () {
+    
     timLoggedIn = false;
     $('#loginStatusLeft').text("Logged Out");
     $('#loginName').text('');
@@ -228,12 +231,22 @@ var logOut = function () {
     $('.schedule').remove();
     $loginFormButton.text('Login');
     renderTable(data);
+    // Remove logout click handler
+    $('#loginButton').off();
+    // Add original click handler back
+    $('#login').on('submit', function(event) {
+       
+      event.preventDefault();
+      // if password matches tim's
+      if ($loginFormInput.val() === logins.tim) {
+        // login
+        login();
+        }
+    });
 }
-
-
-
-var $form = $('form');
-
+/*///////////////////////////////////////////////////////////////////////////
+ RENDER STUDENT INFO
+///////////////////////////////////////////////////////////////////////////*/
 function renderInfo(infoObj) {
     // Create a div for the modal
     var $modal = $('<div></div>');
@@ -505,34 +518,8 @@ function renderInfo(infoObj) {
         }
     }
 }
-
+// Initialization Call
 renderTable(data);
-
-
-// Should create a form and append it on the page
-// function renderForm(day, time) {
-//   // Form > Message > Name > Phone > Email > Preferred Comm > Start Day > Submit Button
-//     var signUpForm = document.createElement('div)')
-//   // When submitted, generate confirmation message
-// }
-
-
-//var testInfo = schedule.mon['5'].info;
-//console.log(JSON.stringify(testInfo));
-
-//renderInfo(testInfo);
-
-// CREATE SIGN-UP FORM FOR WHEN OPEN SPOT CLICKED
-
-// var formElements = document.querySelectorAll('.form');
-// // console.log('Form Elements: ' + JSON.stringify(formElements))
-// for (var i = 0; i < formElements.length; i++) {
-//     formElements[i].classList.remove('.form');
-//     formElements[i].classList.add('.hidden');
-// }
-
-
-
 });
 
 
