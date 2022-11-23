@@ -15,7 +15,8 @@ var $headerInfo = $('#headerInfoRight');
 
 // LOGIN CREDENTIALS STORAGE
 var logins = {
-    tim: '123'
+    tim: '123',
+    student: '456'
 }
 var timLoggedIn = false;
 
@@ -34,9 +35,9 @@ function renderTable(schedule) {
     
       var $scheduleHeadTime = $('<th class="schedule time">Times:</th>');
       var $scheduleHeadMon = $('<th class="tableHead schedule monBooked">Mon</th>');
-      var $scheduleHeadTues = $('<th class="tableHead schedule tuesBooked">Tues</th>');
+      var $scheduleHeadTues = $('<th class="tableHead schedule tuesBooked">Tue</th>');
       var $scheduleHeadWed = $('<th class="tableHead schedule wedBooked">Wed</th>');
-      var $scheduleHeadThurs = $('<th class="tableHead schedule thursBooked">Thurs</th>');
+      var $scheduleHeadThurs = $('<th class="tableHead schedule thursBooked">Thu</th>');
       var $scheduleHeadFri = $('<th class="tableHead schedule friBooked">Fri</th>');
 
     var $scheduleBody = $('<tbody class="schedule" id="schedulebody"></tbody>');
@@ -194,8 +195,12 @@ $('#login').on('submit', function(event) {
   event.preventDefault();
   // if password matches tim's
   if ($loginFormInput.val() === logins.tim) {
-    // login
+    // login tim
     login();
+    }
+  if ($loginFormInput.val() === logins.student) {
+    // login student
+    renderStudentPortal();
     }
 });
 };

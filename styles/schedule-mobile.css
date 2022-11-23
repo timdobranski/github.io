@@ -27,4 +27,73 @@
      width: auto;
      opacity: .3;
     }
+
+
+    .monBooked {
+        background-color: #147095;
+        font-family: economicaBold;
+        width: 18%;
+        border-width: 1.5px;
+        cursor: pointer;
+    }
+    
+    .monOpen {
+        background-color: #9fc5e8;
+        font-family: economica;
+        width: 18%;
+        cursor: pointer;
+    }
+    
+    .tuesBooked {
+        background-color: #2fc02d;
+        font-family: economicaBold;
+        width: 18%;
+        border-width: 1.5px;
+    }
+    
+    .tuesOpen {
+        background-color: #b9fc9e;
+        font-family: economica;
+        width: 18%;
+        border-width: 1.5px;
+        cursor: pointer;
+    }
+    .wedBooked {
+        background-color: #ff2d2b;
+        font-family: economicaBold;
+        width: 18%;
+    }
+    
+    .wedOpen {
+        background-color: #ea9999;
+        font-family: economica;
+        width: 18%;
+        cursor: pointer;
+    }
+    .thursBooked {
+        background-color: #ffb62b;
+        font-family: economicaBold;
+        width: 18%;
+    }
+    
+    .thursOpen {
+        background-color: #ffe599;
+        font-family: economica;
+        width: 120px;
+        cursor: pointer;
+    }
+    .friBooked {
+        background-color: #a64d79;
+        font-family: economicaBold;
+        width: 18%;
+    }
+    
+    .friOpen {
+        background-color: #d5a6bd;
+        font-family: economica;
+        width: 18%;
+        cursor: pointer;
+    }
+
+
 }
