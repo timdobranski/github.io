@@ -45,8 +45,7 @@ MAIN PAGE AND HEADER
 }
 #logo {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: 19%;
     width: 50%;
     padding: 10px;
 }

@@ -154,8 +154,7 @@ function renderTable(schedule) {
         var name = data[spot].info.student[0];
         $spot.info = data[spot].info;
         // Set that element's class to 'day' + text to booked or student name depending on login status
-        // THIS LINE WILL BE A PROBLEM AFTER THE REFACTOR
-        $spot.attr('class', data[spot].bookedClass)
+        $spot.addClass(data[spot].bookedClass);
         if (timLoggedIn) {
           $spot.text(name); 
         } else {
@@ -172,7 +171,7 @@ function renderTable(schedule) {
         // Else
         } else if (booked === false) {
           // Set class to 'day' + text to open
-          $spot.attr('class', data[spot].openClass);
+          $spot.addClass(data[spot].openClass);
           $spot.text('Open!');
         // Add an event listener for clicks that opens a sign-up page
           $spot.off('click', function() {

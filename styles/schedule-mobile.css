@@ -35,7 +35,7 @@
         width: 18%;
         border-width: 1.5px;
         cursor: pointer;
-        font-size: 14px;
+
     }
     
     .monOpen {
@@ -43,7 +43,7 @@
         font-family: economica;
         width: 18%;
         cursor: pointer;
-        font-size: 14px;
+
     }
     
     .tuesBooked {
@@ -51,7 +51,7 @@
         font-family: economicaBold;
         width: 18%;
         border-width: 1.5px;
-        font-size: 14px;
+
     }
     
     .tuesOpen {
@@ -60,13 +60,13 @@
         width: 18%;
         border-width: 1.5px;
         cursor: pointer;
-        font-size: 14px;
+
     }
     .wedBooked {
         background-color: #ff2d2b;
         font-family: economicaBold;
         width: 18%;
-        font-size: 14px;
+
     }
     
     .wedOpen {
@@ -74,13 +74,13 @@
         font-family: economica;
         width: 18%;
         cursor: pointer;
-        font-size: 14px;
+
     }
     .thursBooked {
         background-color: #ffb62b;
         font-family: economicaBold;
         width: 18%;
-        font-size: 14px;
+ 
     }
     
     .thursOpen {
@@ -88,13 +88,13 @@
         font-family: economica;
         width: 120px;
         cursor: pointer;
-        font-size: 14px;
+  
     }
     .friBooked {
         background-color: #a64d79;
         font-family: economicaBold;
         width: 18%;
-        font-size: 14px;
+   
     }
     
     .friOpen {
@@ -102,7 +102,11 @@
         font-family: economica;
         width: 18%;
         cursor: pointer;
-        font-size: 14px;
+      
+    }
+
+    .tableHead {
+        font-size: 22px;
     }
 
     .scheduleCell {
